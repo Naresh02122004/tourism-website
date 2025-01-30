@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourism Website</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Style */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            min-height: 100vh;
+            background: linear-gradient(90deg, blue, red);
+            color: white;
+            padding-top: 60px;
+        }
+
+        /* Welcome Page */
+        .welcome-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 90vh;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .image-label {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* Button */
+        .button {
+            margin-top: 20px;
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        /* Second Page Content */
+        .secondPage {
+            display: none;
+            width: 80%;
+            margin: auto;
+            text-align: left;
+            margin-top: 40px;
+            background-color: #f0f0f0;
+            color: black;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        /* Second Page Navigation - Top Right */
+        .secondPage nav {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            text-align: right;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .secondPage nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .secondPage nav a:hover {
+            color: yellow;
+        }
+
+        /* Places Section */
+        .places-section {
+            display: none;
+            margin-top: 40px;
+            background-color: #f4f4f4; /* Light gray background for places section */
+            padding: 20px;
+            color: black;
+        }
+
+        .place {
+            margin-bottom: 30px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            color: black;
+        }
+
+        .place img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        /* About Section */
+        .about-section {
+            display: block;
+        }
+
+        /* Login Section */
+        .login-section {
+            display: none;
+            background-color: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .login-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .login-section input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        .login-section button {
+            width: 100%;
+            padding: 12px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .login-section button:hover {
+            background-color: darkblue;
+        }
+
+        .login-section .google-signin {
+            width: 100%;
+            padding: 12px;
+            background-color: #db4437;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .login-section .google-signin:hover {
+            background-color: darkred;
+        }
+
+        .login-section .signup {
+            text-align: center;
+        }
+
+        .login-section .signup a {
+            text-decoration: none;
+            color: blue;
+            font-size: 1.1rem;
+        }
+
+        .login-section .signup a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Welcome Page -->
+    <div class="welcome-container" id="welcomePage">
+        <h1>Welcome</h1>
+        <div class="image-label">TOURISM</div>
+        <button class="button" onclick="showSecondPage()">Next</button>
+    </div>
+
+    <!-- Second Page Content -->
+    <div class="secondPage" id="secondPage">
+        <!-- Second Page Navigation -->
+        <nav>
+            <a href="#" onclick="showWelcomePage()">Home</a>
+            <a href="#" onclick="showAboutSection()">About</a>
+            <a href="#" onclick="showPlacesSection()">Places</a>
+            <a href="#" onclick="showLoginSection()">Login</a>
+        </nav>
+
+        <!-- Introduction Section -->
+        <div id="introduction" class="about-section">
+            <h1>Introduction</h1>
+            <p>Tourism involves the movement of people to places outside their usual environment for various purposes, primarily leisure, recreation, and pleasure.</p>
+        </div>
+
+    </div>
+
+    <!-- Login Section -->
+    <div class="login-section" id="loginSection">
+        <h2>Login / Sign Up</h2>
+        <!-- Login Form -->
+        <div id="loginForm">
+            <input type="text" placeholder="Enter Name" id="name" required />
+            <input type="tel" placeholder="Enter Phone Number" id="phone" required />
+            <input type="email" placeholder="Enter Email ID" id="email" required />
+            <input type="password" placeholder="Enter Password" id="password" required />
+            <button>Sign In</button>
+        </div>
+        <!-- Sign Up Form -->
+        <div id="signupForm" style="display:none;">
+            <input type="text" placeholder="Enter Name" id="signupName" required />
+            <input type="tel" placeholder="Enter Phone Number" id="signupPhone" required />
+            <input type="email" placeholder="Enter Email ID" id="signupEmail" required />
+            <input type="password" placeholder="Enter Password" id="signupPassword" required />
+            <button>Sign Up</button>
+        </div>
+        <div class="signup">
+            <p>Don't have an account? <a href="#" onclick="toggleForms()">Sign up</a></p>
+        </div>
+    </div>
+
+    <!-- Historical Places Section -->
+    <div class="places-section" id="placesSection">
+        <h1>Historical Places in Andhra Pradesh</h1>
+        <!-- Place 1 -->
+        <div class="place">
+            <h2>Chilkur Balaji Temple</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Chilkur_Balaji_Temple.jpg" alt="Chilkur Balaji Temple">
+            <p><strong>Address:</strong> Chilkur, Hyderabad, Andhra Pradesh, India</p>
+            <p><strong>Pincode:</strong> 500075</p>
+        </div>
+    </div>
+
+    <script>
+        function showSecondPage() {
+            document.getElementById('welcomePage').style.display = 'none';
+            document.getElementById('secondPage').style.display = 'block';
+        }
+
+        function showWelcomePage() {
+            document.getElementById('welcomePage').style.display = 'flex';
+            document.getElementById('secondPage').style.display = 'none';
+            document.getElementById('placesSection').style.display = 'none';
+            document.getElementById('loginSection').style.display = 'none';
+        }
+
+        function showAboutSection() {
+            document.getElementById('placesSection').style.display = 'none';
+            document.getElementById('loginSection').style.display = 'none';
+        }
+
+        function showPlacesSection() {
+            document.getElementById('placesSection').style.display = 'block';
+            document.getElementById('loginSection').style.display = 'none';
+        }
+
+        function showLoginSection() {
+            document.getElementById('loginSection').style.display = 'block';
+            document.getElementById('placesSection').style.display = 'none';
+        }
+
+        function toggleForms() {
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+            } else {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>
